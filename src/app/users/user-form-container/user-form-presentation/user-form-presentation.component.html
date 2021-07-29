@@ -1,0 +1,57 @@
+<div class="container">
+    <h2> User Form</h2>
+    <form class="row" [formGroup]="userForm" (click)="onSubmit()">
+        <div class="col-md-9">
+            <label for="firstname" class="form-label">First Name: </label>
+            <input type="text" class="form-control" formControlName="firstname" required>
+        </div>
+        <!-- <span class="text-danger"
+            *ngIf="(userFormFormControl.firstname.touched || submitted) && userFormFormControl.firstname.errors?.required">
+           First Name required
+        </span> -->
+
+        <div class="col-md-9">
+            <label for="lastname" class="form-label">Last Name: </label>
+            <input type="text" class="form-control" formControlName="lastname" required>
+        </div>
+        <!-- <span class="text-danger"
+            *ngIf="(userFormFormControl.lastname.touched || submitted) && userFormFormControl.lastname.errors?.required">
+           Last Name required
+        </span> -->
+
+       
+        <div class="col-md-9">
+            <label for="email" class="form-label">Email: </label>
+            <input type="text" class="form-control" formControlName="email" id="email" required>
+
+        </div>
+        <!-- <span class="text-danger"
+            *ngIf="(userFormFormControl.email.touched || submitted) && userFormFormControl.email.errors?.required">
+            Email is required
+        </span> -->
+        <div class="col-md-9">
+        <label for="exampleFormControlSelect2">Select Client Name</label>
+        <select class="form-control" id="exampleFormControlSelect2"  formControlName="clientname">
+          <option *ngFor="let item of client" [value]="item">{{item}}</option>
+        </select>
+        </div>
+
+        <div class="col-md-9">
+            <label for="phoneno" class="form-label">Phone No: </label>
+            <input type="text" class="form-control" formControlName="phoneno" id="phoneno" required>
+        </div>
+        <!-- <span class="text-danger"
+            *ngIf="(userFormFormControl.phoneno.touched || submitted) && userFormFormControl.phoneno.errors?.required">
+            Phone No is required
+        </span> -->
+        <div class="col-md-9">
+        <label for="exampleFormControlSelect2">Select Office</label>
+        <select class="form-control" id="exampleFormControlSelect2"  formControlName="officename">
+          <option *ngFor="let item of Office" [value]="item">{{item}}</option>
+        </select>
+    </div><br>
+
+    <button type="submit"  class="btn btn-primary" >Submit</button>
+
+    </form>
+</div>

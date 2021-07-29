@@ -1,0 +1,47 @@
+
+    <h2>User Management</h2>
+    <div class="button">
+        
+        <a routerLink = "add"  class="my-1 btn btn-success mx-3">+Add User</a></div>
+         <!-- <button class="my-1 btn btn-primary mx-3" routerLink="../">Back</button> -->
+         <div class="form-group">
+   
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search name"[(ngModel)]="nameSearch">
+          </div>
+
+<table class="table table-striped border border-secondary">
+    <thead>
+    <tr>
+        <th (click)="sort('id')">No</th>
+        <th (click)="sort('firstname)">First Name</th>
+        <th (click)="sort('lastname)">Last Name</th>
+        <th (click)="sort('email')">Email</th>
+        <th (click)="sort('clientname')">client Name</th>
+        <th (click)="sort('phoneno')">Phone number</th>
+        <th (click)="sort('officename)">Office Name</th>
+        
+    </tr>
+</thead>
+<tbody>
+    
+    <tr *ngFor="let userList of userList | orderBy: key : reverse  | filter:nameSearch | paginate: { itemsPerPage: 6, currentPage: p }; let i = index">
+        <td>{{userList.id}}</td>
+        <td>{{userList.firstname}}</td>
+        <td>{{userList.lastname}}</td>
+        <td>{{userList.email}}</td>
+        <td>{{userList.clientname}}</td>
+        <td>{{userList.phoneno}}</td>
+        <td>{{userList.officename}}</td>
+       
+        <td>
+            <button (click)="Deletedata(userList.id)" class="btn btn-danger">Delete</button>
+          </td>
+          <!-- <button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right"
+                        title="Edit" routerLink="/bankdetail/{{bankdetail.id}}">
+                        Edit
+                    </button> -->
+    </tr>
+</tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
